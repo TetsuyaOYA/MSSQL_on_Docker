@@ -1,0 +1,19 @@
+services:
+  db:
+    build: .
+    container_name: my_mssql
+    restart: always
+    ports:
+      - "1433:1433"
+    environment:
+      SA_PASSWORD: ${SA_PASSWORD}
+      DB_NAME: ${DB_NAME}
+      ACCEPT_EULA: "Y"
+      MSSQL_PID: "Developer"
+      MSSQL_TCP_PORT: "1433"
+    volumes:
+      - mssql_data:/var/opt/mssql
+      - ./pubs_azure_with_timestamp.sql:/tmp/pubs_azure_with_timestamp.sql
+
+volumes:
+  mssql_data:
