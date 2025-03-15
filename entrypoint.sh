@@ -14,7 +14,7 @@ until /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P "${SA_PASSWORD}" -Q "SEL
 done
 
 # 初期 SQL スクリプトを実行
-/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P "${SA_PASSWORD}" -i "/tmp/init-db.sql"
+/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P "${SA_PASSWORD}" -i "/tmp/pubs_azure_with_timestamp.sql"
 
 # MSSQL のメインプロセスを実行
 wait
